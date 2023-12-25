@@ -11,10 +11,27 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     List<Product> products = context.read<ProductProvider>().products;
+    List<Product> wishList = context.read<ProductProvider>().wishList;
     return Scaffold(
       appBar: AppBar(
         centerTitle: false,
         title: const Text("Products"),
+        actions: [
+          Padding(
+            padding:
+                const EdgeInsets.symmetric(vertical: 8.0, horizontal: 10.0),
+            child: Badge(
+              label: Text(wishList.length.toString()),
+              child: const IconButton(
+                icon: Icon(
+                  Icons.shopping_cart,
+                  size: 30,
+                ),
+                onPressed: null,
+              ),
+            ),
+          ),
+        ],
       ),
       body: GridView.builder(
         gridDelegate:
