@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:wish_list/config/constant/constants.dart';
 
 class ErrorScreen extends StatelessWidget {
   ErrorScreen({super.key, required this.routeName});
@@ -14,7 +15,8 @@ class ErrorScreen extends StatelessWidget {
                 "No route defined $routeName",
               ),
               ElevatedButton.icon(
-                  onPressed: () => Navigator.popAndPushNamed(context, "/"),
+                  onPressed: () =>
+                      Navigator.popAndPushNamed(context, homeRoute),
                   icon: const Icon(Icons.replay_outlined),
                   label: const Text("Volver a inicio"))
             ],
