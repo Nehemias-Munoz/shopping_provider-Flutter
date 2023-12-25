@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:wish_list/provider/product_provider.dart';
 
 import '../../models/models.dart';
 
@@ -9,6 +11,7 @@ class ProductCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
+      key: ObjectKey(product),
       child: Container(
         margin: const EdgeInsets.all(5.0),
         child: Column(
@@ -25,8 +28,24 @@ class ProductCard extends StatelessWidget {
                 children: [
                   Text(product.price.toString()),
                   IconButton(
-                    onPressed: () {},
-                    icon: const Icon(Icons.shopping_bag_outlined),
+                    onPressed: () {
+                      if (context
+                          .read<ProductProvider>()
+                          .wishList
+                          .contains(product)) {
+                        context
+                            .read<ProductProvider>()
+                            .removeFromWishList(product);
+                      } else {
+                        context.read<ProductProvider>().addToWishList(product);
+                      }
+                    },
+                    icon: Icon(context
+                            .watch<ProductProvider>()
+                            .wishList
+                            .contains(product)
+                        ? Icons.shopping_bag
+                        : Icons.shopping_bag_outlined),
                   )
                 ],
               ),

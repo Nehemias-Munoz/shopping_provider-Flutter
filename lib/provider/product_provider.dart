@@ -3,9 +3,10 @@ import 'package:wish_list/models/models.dart';
 
 //Generate fake data
 List<Product> initialData = List.generate(
-    10,
-    (index) => Product(
-        "Product $index", index * 1000, "https://placehold.co/600x400"));
+  10,
+  (index) =>
+      Product("Product $index", index * 1000, "https://placehold.co/600x400"),
+);
 
 class ProductProvider extends ChangeNotifier {
   List<Product> _products = initialData;

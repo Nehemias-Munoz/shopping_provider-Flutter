@@ -10,8 +10,8 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    List<Product> products = context.read<ProductProvider>().products;
-    List<Product> wishList = context.read<ProductProvider>().wishList;
+    List<Product> products = context.watch<ProductProvider>().products;
+    List<Product> wishList = context.watch<ProductProvider>().wishList;
     return Scaffold(
       appBar: AppBar(
         centerTitle: false,
