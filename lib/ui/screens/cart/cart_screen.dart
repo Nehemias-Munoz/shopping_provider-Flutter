@@ -14,7 +14,7 @@ class CartScreen extends StatelessWidget {
         centerTitle: false,
         title: const Text("Cart"),
       ),
-      body: wishList.length == 0
+      body: wishList.isEmpty
           ? const Center(
               child: Text("The cart is empty"),
             )
@@ -47,13 +47,11 @@ class CartScreen extends StatelessWidget {
                               child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              Row(
+                              const Row(
                                 children: [
-                                  TextButton(
-                                      onPressed: null, child: const Text("+")),
+                                  TextButton(onPressed: null, child: Text("+")),
                                   Text("n"),
-                                  TextButton(
-                                      onPressed: null, child: const Text("-")),
+                                  TextButton(onPressed: null, child: Text("-")),
                                 ],
                               ),
                               ElevatedButton.icon(
