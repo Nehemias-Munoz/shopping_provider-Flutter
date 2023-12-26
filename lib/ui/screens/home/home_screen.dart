@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:wish_list/config/constant/constants.dart';
 import 'package:wish_list/models/models.dart';
 import 'package:wish_list/provider/product_provider.dart';
 
@@ -22,12 +23,12 @@ class HomeScreen extends StatelessWidget {
                 const EdgeInsets.symmetric(vertical: 8.0, horizontal: 10.0),
             child: Badge(
               label: Text(wishList.length.toString()),
-              child: const IconButton(
-                icon: Icon(
+              child: IconButton(
+                icon: const Icon(
                   Icons.shopping_cart,
                   size: 30,
                 ),
-                onPressed: null,
+                onPressed: () => Navigator.pushNamed(context, cartRoute),
               ),
             ),
           ),
