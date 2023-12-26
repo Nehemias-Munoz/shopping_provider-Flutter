@@ -19,7 +19,19 @@ class ProductCard extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             //todo: replace with image
-            Expanded(flex: 3, child: FlutterLogo()),
+            Expanded(
+              flex: 3,
+              child: Container(
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(10),
+                  child: Image.network(
+                    product.image,
+                    fit: BoxFit.fitWidth,
+                    width: double.infinity,
+                  ),
+                ),
+              ),
+            ),
             Expanded(flex: 1, child: Text(product.name)),
             Expanded(
               flex: 1,
