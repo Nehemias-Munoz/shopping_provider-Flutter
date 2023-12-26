@@ -5,7 +5,7 @@ import 'package:wish_list/models/models.dart';
 List<Product> initialData = List.generate(
   10,
   (index) =>
-      Product("Product $index", index * 1000, "https://placehold.co/600x400"),
+      Product("Product $index", index * 1000, "http://placekitten.com/200/300"),
 );
 
 class ProductProvider extends ChangeNotifier {
